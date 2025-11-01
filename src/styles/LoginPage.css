@@ -1,0 +1,87 @@
+/* LoginPage.css - responsive and animated */
+:root{
+  --bg: linear-gradient(135deg,#0f2027 0%,#203a43 50%,#2c5364 100%);
+  --card:#ffffff;
+  --accent:#ff6b6b;
+  --accent2:#6bffb8;
+}
+*{box-sizing:border-box;font-family:Inter,system-ui,Arial;}
+body,html,#root{height:100%;margin:0;background:var(--bg);}
+
+.login-wrap{
+  min-height:100vh;display:flex;justify-content:center;padding:24px;
+}
+
+.card{
+  max-height: 23rem;
+  width:100%;max-width:860px;background:rgba(255,255,255,0.06);backdrop-filter:blur(6px);
+  border-radius:16px;padding:20px;box-shadow:0 10px 30px rgba(0,0,0,0.4);
+  position:relative;overflow:hidden;
+  transition:transform .6s;
+}
+
+/* flip animation simulated by translate */
+/* .flip-admin{ transform: translateX(-6%); }
+.flip-student{ transform: translateX(6%); } */
+
+.switcher{ position:absolute;top:12px;left:12px;display:flex;gap:8px; }
+.switcher button{ border:0;padding:8px 12px;border-radius:999px;background:rgba(255,255,255,0.08);color:#fff;cursor:pointer; }
+.switcher button.active{ background:linear-gradient(90deg,var(--accent),#ffa44a);box-shadow:0 6px 18px rgba(0,0,0,0.3); }
+
+.pane{ padding:28px; color:#fff; }
+.pane h2{ margin-top:0;font-size:1.5rem; }
+.pane form{ display:flex;flex-direction:column;gap:12px;margin-top:12px;}
+.pane input{ padding:12px;border-radius:10px;border:0;outline:none;box-shadow:inset 0 0 0 2px rgba(255,255,255,0.04);color:#111;background:rgba(255,255,255,0.95); }
+.pane button{ padding:12px;border-radius:10px;border:0;cursor:pointer;font-weight:600;
+  background:linear-gradient(90deg,var(--accent),#ffa44a); color:#fff; box-shadow:0 8px 24px rgba(255,107,107,0.18); transition:transform .15s;}
+.pane button:active{ transform:translateY(2px); }
+
+@media (max-width:800px){
+  .card{ grid-template-columns:1fr; padding-top:60px; }
+  .switcher{ top:8px; left:50%; transform:translateX(-50%); }
+}
+/* ✨ Animated title and subtitle */
+.title {
+  text-align: center;
+  font-size: 2rem;
+  color: #fff;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  letter-spacing: 1px;
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #e0e0e0;
+  font-weight: 500;
+  margin-top: 2rem;
+  animation-delay: 0.8s;
+}
+
+/* 🔄 Fade and slide-in animations */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s ease forwards;
+}
+
+.fade-in-down {
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: fadeInDown 1s ease forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,162 @@
+/* Leaderboard.css
+.lb-wrap{ padding:18px; max-width:900px; margin:24px auto; color:#fff; }
+.lb-header{ margin-bottom:12px; }
+.lb-list{ list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:10px; }
+.lb-item{ display:flex; align-items:center; gap:12px; padding:14px; border-radius:12px; background:rgba(255,255,255,0.03); }
+.lb-item.correct{ border-left:6px solid #5eead4; background:linear-gradient(90deg, rgba(94,234,212,0.06), rgba(255,255,255,0.02)); color:#003; }
+.lb-item.wrong{ border-left:6px solid #ffb4b4; opacity:0.9; }
+.rank{ width:40px; font-weight:800; font-size:1.1rem; }
+.who{ flex:1; }
+.time{ font-weight:700; }
+.no-data{ padding:24px; text-align:center; color:#ddd; } */
+
+/* 🌟 Leaderboard Container */
+.leaderboard-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+  animation: fadeIn 0.8s ease;
+}
+
+/* 🏆 Title */
+.leaderboard-title {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  text-align: center;
+  color: #fddb3a;
+  text-shadow: 0 0 10px rgba(253, 219, 58, 0.7);
+  animation: slideDown 0.8s ease;
+}
+
+/* 📜 Empty Text */
+.leaderboard-empty {
+  font-size: 1.2rem;
+  color: #ddd;
+  text-align: center;
+  margin-top: 50px;
+  animation: pulse 2s infinite;
+}
+
+/* 📊 Table */
+.leaderboard-table {
+  width: 100%;
+  max-width: 800px;
+  border-collapse: collapse;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  animation: fadeUp 0.7s ease;
+}
+
+/* 🧭 Table Header */
+.leaderboard-table th {
+  background: rgba(255, 255, 255, 0.15);
+  color: #fddb3a;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 16px 10px;
+  letter-spacing: 1px;
+}
+
+/* 🧍 Table Row */
+.leaderboard-table td {
+  text-align: center;
+  padding: 14px 10px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+/* 🟢 Correct / 🔴 Wrong Rows */
+.correct {
+  background: rgba(0, 255, 136, 0.15);
+  color: #00ff88;
+}
+
+.correct:hover {
+  background: rgba(0, 255, 136, 0.3);
+  transform: scale(1.02);
+}
+
+.wrong {
+  background: rgba(255, 0, 0, 0.15);
+  color: #ff5757;
+}
+
+.wrong:hover {
+  background: rgba(255, 0, 0, 0.3);
+  transform: scale(1.02);
+}
+
+/* 🧱 Table Borders */
+.leaderboard-table tr:nth-child(even):not(.correct):not(.wrong) {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* 🌈 Rank Animation */
+.leaderboard-table tr {
+  animation: rankReveal 0.5s ease forwards;
+  opacity: 0;
+}
+
+.leaderboard-table tr:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.leaderboard-table tr:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.leaderboard-table tr:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.leaderboard-table tr:nth-child(4) {
+  animation-delay: 0.4s;
+}
+.leaderboard-table tr:nth-child(5) {
+  animation-delay: 0.5s;
+}
+
+/* 🪄 Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.98); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slideDown {
+  from { transform: translateY(-30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes fadeUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+@keyframes rankReveal {
+  to { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; transform: translateY(15px); }
+}
+
+/* 📱 Responsive Design */
+@media (max-width: 600px) {
+  .leaderboard-table {
+    font-size: 0.9rem;
+  }
+
+  .leaderboard-title {
+    font-size: 2rem;
+  }
+
+  .leaderboard-container {
+    padding: 20px 10px;
+  }
+}

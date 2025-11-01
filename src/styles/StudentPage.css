@@ -1,0 +1,35 @@
+/* StudentPage.css */
+.student-wrap{ padding:20px; max-width:900px; margin:20px auto; color:#fff; }
+.student-header{ display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; }
+.waiting{ text-align:center; padding:24px; background:rgba(255,255,255,0.03); border-radius:12px; color:#fff; }
+
+.question-card{ background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02)); padding:18px; border-radius:12px; }
+.q-top{ display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; }
+.q-text{ font-weight:700; font-size:1.1rem; }
+.timer{ font-weight:700; color:#ffd36b; }
+
+.q-options{ display:grid; gap:10px; }
+.opt{ display:flex; align-items:center; padding:12px; border-radius:10px; cursor:pointer; background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.03); transition:transform .12s, box-shadow .12s; }
+.opt:hover{ transform:translateY(-4px); box-shadow:0 12px 30px rgba(0,0,0,0.35); }
+.opt.selected{ background:linear-gradient(90deg,#a7ffeb,#6bffb8); color:#003; transform:none; }
+.opt-label{ width:36px; height:36px; display:inline-flex; align-items:center; justify-content:center; border-radius:999px; margin-right:12px; background:rgba(255,255,255,0.06); font-weight:700; }
+.q-actions{ text-align:right; margin-top:12px; }
+.q-actions button{ padding:10px 14px; border-radius:10px; border:0; cursor:pointer; background:linear-gradient(90deg,#6bffb8,#00c7a5); color:#003; font-weight:700; }
+
+
+.waiting {margin-top: 120px;font-size: 1.6rem;font-weight: 600;text-align: center;color: #ffe680;animation: fadeIn 1s ease-in-out, pulse 2s infinite;position: relative;}
+
+.waiting::after {content: "⏳";position: absolute;font-size: 2rem;animation: bounce 1.2s infinite ease-in-out;}
+
+@keyframes pulse {
+  0% { opacity: 0.8; }
+  50% { opacity: 1; transform: scale(1.05); }
+  100% { opacity: 0.8; }
+}
+
+@keyframes bounce {0%, 100% { transform: translateY(0); }50% { transform: translateY(-6px); }}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
