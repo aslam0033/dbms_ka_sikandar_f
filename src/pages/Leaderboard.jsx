@@ -1,61 +1,10 @@
-// // src/pages/Leaderboard.jsx
-// import React, { useEffect, useState } from 'react';
-// import { useParams } from 'react-router-dom';
-// import socket from '../socket';
-
-// export default function Leaderboard() {
-//   const { roomId } = useParams();
-//   const [board, setBoard] = useState(() => {
-//     const raw = sessionStorage.getItem('last_leaderboard');
-//     return raw ? JSON.parse(raw) : [];
-//   });
-
-//   useEffect(() => {
-//     socket.on('show_results', ({ leaderboard }) => {
-//       setBoard(leaderboard);
-//     });
-//     socket.on('answers_update', ({ leaderboard }) => {
-//       setBoard(leaderboard);
-//     });
-//     return () => {
-//       socket.off('show_results');
-//       socket.off('answers_update');
-//     };
-//   }, []);
-
-//   return (
-//     <div className="lb-wrap">
-//       <header className="lb-header">
-//         <h2>Leaderboard — Room {roomId}</h2>
-//       </header>
-
-//       <main className="lb-main">
-//         <ol className="lb-list">
-//           {board.length === 0 && <div className="no-data">No answers yet</div>}
-//           {board.map((p, idx) => (
-//             <li key={p.id} className={`lb-item ${p.correct ? 'correct' : 'wrong'}`}>
-//               <div className="rank">{idx + 1}</div>
-//               <div className="who">
-//                 <div className="name">{p.name}</div>
-//                 <div className="meta">{p.correct ? 'Correct' : 'Wrong'}</div>
-//               </div>
-//               <div className="time">{p.timeTakenSec}s</div>
-//             </li>
-//           ))}
-//         </ol>
-//       </main>
-//     </div>
-//   );
-// }
-
 
 // src/components/Leaderboard.jsx
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import io from "socket.io-client";
+import socket from "../socket";
 import "../styles/Leaderboard.css";
 
-const socket = io("http://localhost:4000"); // ✅ adjust if your backend uses another port
 
 const Leaderboard = () => {
   const location = useLocation();
